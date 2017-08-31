@@ -10,21 +10,7 @@ let MyServer = "http://csse.szu.edu.cn",
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	console.log('----- checkResult -----')
-	let ticket = req.query.ticket
-	if(typeof ticket != 'undefined' || ticket != null){
-		console.log('check ticket -->',ticket)
-		//$URL = $CASserver . "serviceValidate?ticket=" . $_GET["ticket"] . "&service=". $ReturnURL;		//CAS webservices 地址
-		let url = CASserver + 'serviceValidate?ticket=' + ticket + '&service=' + ReturnURL
-		console.log('check url -->',url)
-
-		request(url, function (error, response, body) {
-	      if (!error && response.statusCode == 200) {
-	        console.log(body);
-	      }
-	    })
-	}
-  //res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Express' });
 });
 
 router.get('/login',function(req,res){
