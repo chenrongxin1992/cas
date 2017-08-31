@@ -5,11 +5,26 @@ const request = require('request')
 
 let MyServer = "http://csse.szu.edu.cn",
 	CASserver = "https://auth.szu.edu.cn/cas.aspx/",
-	ReturnURL = "http://csse.szu.edu.cn/book/checkResult";
+	ReturnURL = "http://csse.szu.edu.cn/book/";
+	//ReturnURL = '172.31.74.5:81/checkResult'
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+	console.log('----- checkResult -----')
+	let ticket = req.query.ticket
+	if(typeof ticket != 'undefined' || ticket != null){
+		console.log('check ticket -->',ticket)
+		//$URL = $CASserver . "serviceValidate?ticket=" . $_GET["ticket"] . "&service=". $ReturnURL;		//CAS webservices 地址
+		let url = CASserver + 'serviceValidate?ticket=' + ticket + '&service=' + ReturnURL
+		console.log('check url -->',url)
+
+		request(url, function (error, response, body) {
+	      if (!error && response.statusCode == 200) {
+	        console.log(body);
+	      }
+	    })
+	}
+  //res.render('index', { title: 'Express' });
 });
 
 router.get('/login',function(req,res){
