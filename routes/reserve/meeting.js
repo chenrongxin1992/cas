@@ -14,6 +14,7 @@ var router = express.Router()
 router.get('/meeting',function(req,res){
 	console.log('----- checkResult -----')
 	let ticket = req.query.ticket
+	console.log(ticket)
 	if(typeof ticket != 'undefined' || ticket != null){
 		console.log('check ticket -->',ticket)
 		//$URL = $CASserver . "serviceValidate?ticket=" . $_GET["ticket"] . "&service=". $ReturnURL;		//CAS webservices 地址
