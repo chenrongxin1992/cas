@@ -5,8 +5,8 @@ const request = require('request')
 
 let MyServer = "http://csse.szu.edu.cn",
 	CASserver = "https://auth.szu.edu.cn/cas.aspx/",
-	ReturnURL = "http://csse.szu.edu.cn/book/";
-	//ReturnURL = '172.31.74.5:81/checkResult'
+	ReturnURL = "http://csse.szu.edu.cn/book";
+	//ReturnURL = 'http://210.39.15.162:81/reserve/meeting'
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
